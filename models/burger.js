@@ -11,10 +11,13 @@ const burger = {
         orm.insertOne('burgers', cols, vals, (res) => cb(res));
     },
     //update function
-    update(objColVals, condition, cb) {
-        orm.updateOne('burgers', objColVals, condition, (res) => cb(res));
-    },
+    updateOne: function(objColVals, condition, cb) {
+        orm.updateOne("burgers", objColVals, condition, function(res) {
+            cb(res);
+        });
+    }
 };
+
 
 // Export the database functions for the controller
 module.exports = burger;
